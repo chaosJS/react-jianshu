@@ -1,0 +1,44 @@
+{
+  "id": "2617113",
+  "name": "jianshu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11215285",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e706",
+      "unicode_decimal": 59142
+    },
+    {
+      "icon_id": "826065",
+      "name": "app4",
+      "font_class": "app4",
+      "unicode": "e6f4",
+      "unicode_decimal": 59124
+    },
+    {
+      "icon_id": "1621077",
+      "name": "Aa",
+      "font_class": "Aa",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "9642967",
+      "name": "指南针",
+      "font_class": "zhinanzhen",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "21396811",
+      "name": "line-quill pen（羽毛笔）",
+      "font_class": "line-quillpenyumaobi",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    }
+  ]
+}
