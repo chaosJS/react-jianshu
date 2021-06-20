@@ -16,8 +16,13 @@ import { Container } from '@/commonStyle';
 import { CSSTransition } from 'react-transition-group';
 // use redux state
 import { useSelector, useDispatch } from 'react-redux';
-import { inputFocused, inputBlur } from '../../../store/focusSlice';
-
+import {
+	inputFocused,
+	inputBlur,
+	mouseEnter,
+	mouseLeave,
+} from '../../../store/focusSlice';
+import { nextPage } from '../../../store/hotSearch';
 import { fetchPostById } from '../../../services/posts';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -30,9 +35,10 @@ const Header = () => {
 		// setFocused(true);
 
 		setMyLoading(true);
-		dispatch(fetchPostById(1)).then(() => {
-			setMyLoading(false);
-		});
+		!showWords.length &&
+			dispatch(fetchPostById(1)).then(() => {
+				setMyLoading(false);
+			});
 		dispatch(inputFocused());
 	};
 	const handleBlur = () => {
@@ -42,7 +48,10 @@ const Header = () => {
 	const focusedFromState = useSelector((state) => {
 		return state.focusState.focused;
 	});
-	const { list, loading, error } = useSelector((state) => {
+	const mouseIn = useSelector((state) => {
+		return state.focusState.mouseIn;
+	});
+	const { list, loading, error, showWords } = useSelector((state) => {
 		return state.hotSearchState;
 	});
 
@@ -84,17 +93,30 @@ const Header = () => {
 							></NavSearch>
 						</CSSTransition>
 						<i className="iconfont icon-search" />
-						{focusedFromState ? (
-							<SearchInfo>
+						{!!(focusedFromState || mouseIn) ? (
+							<SearchInfo
+								onMouseEnter={() => {
+									dispatch(mouseEnter());
+								}}
+								onMouseLeave={() => {
+									dispatch(mouseLeave());
+								}}
+							>
 								<SearchInfoTitle>
 									热门搜索
-									<SearchInfoSwitch>换一批</SearchInfoSwitch>
+									<SearchInfoSwitch
+										onClick={() => {
+											dispatch(nextPage());
+										}}
+									>
+										换一批
+									</SearchInfoSwitch>
 								</SearchInfoTitle>
 								<SearchList>
 									{loading
 										? 'loading....'
-										: list.map((item, index) => (
-												<SearchItem key={index}>{item.id}</SearchItem>
+										: showWords.map((item, index) => (
+												<SearchItem key={index}>{item}</SearchItem>
 										  ))}
 								</SearchList>
 							</SearchInfo>

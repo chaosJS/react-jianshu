@@ -4,8 +4,8 @@ export const fetchPostById = createAsyncThunk(
 	'hotSearch/xxxxx',
 	async (postId, thunkAPI) => {
 		const response = await axios.get(
-			`https://jsonplaceholder.typicode.com/posts/${postId}`
+			`http://localhost:3000/api/headerList.json`
 		);
-		return response.data;
+		return response.data.data;
 	}
 );

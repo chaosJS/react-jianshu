@@ -4,6 +4,7 @@ export const focusSlice = createSlice({
 	name: 'focusState',
 	initialState: {
 		focused: false,
+		mouseIn: false,
 	},
 	reducers: {
 		inputFocused: (state) => {
@@ -17,10 +18,18 @@ export const focusSlice = createSlice({
 		inputBlur: (state) => {
 			state.focused = false;
 		},
+
+		mouseEnter: (state) => {
+			state.mouseIn = true;
+		},
+		mouseLeave: (state) => {
+			state.mouseIn = false;
+		},
 	},
 });
 
 // Action creators are generated for each case reducer function
-export const { inputFocused, inputBlur } = focusSlice.actions;
+export const { inputFocused, inputBlur, mouseEnter, mouseLeave } =
+	focusSlice.actions;
 
 export default focusSlice.reducer;

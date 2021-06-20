@@ -106,6 +106,7 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
 	margin-left: auto;
 	font-size: 12px;
+	cursor: pointer;
 `;
 export const SearchList = styled.ul`
 	display: flex;
