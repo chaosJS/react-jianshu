@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'iconfont'; /* Project id 2617113 */
-	src: url('./iconfont.eot?t=1623923244573'); /* IE9 */
-	src: url('./iconfont.eot?t=1623923244573#iefix') format('embedded-opentype'),
-		url('./iconfont.woff2?t=1623923244573') format('woff2'),
-		url('./iconfont.woff?t=1623923244573') format('woff'),
-		url('./iconfont.ttf?t=1623923244573') format('truetype'),
-		url('./iconfont.svg?t=1623923244573#iconfont') format('svg');
+	src: url('./iconfont.eot?t=1624255492178'); /* IE9 */
+	src: url('./iconfont.eot?t=1624255492178#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */ url('./iconfont.woff2?t=1624255492178') format('woff2'),
+		url('./iconfont.woff?t=1624255492178') format('woff'),
+		url('./iconfont.ttf?t=1624255492178') format('truetype'),
+		url('./iconfont.svg?t=1624255492178#iconfont') format('svg');
 }
 
 .iconfont {
@@ -15,9 +15,15 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.icon-huanyipi:before {
+	content: '\e6e1';
+}
+
 .icon-search:before {
 	content: '\e706';
 }
+
 .icon-app4:before {
 	content: '\e6f4';
 }

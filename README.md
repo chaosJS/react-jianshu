@@ -10,3 +10,4 @@
    2. GlobalIconStyle 导出 js 方式 改动大
 6. add react-redux 新版 react-redux 加上@reduxjs/toolkit 简化很多繁琐操作
    1. 没必要再加 immutableJS 的 fromJS/set/get 之类的方法包装 state 的数据
+7. add router

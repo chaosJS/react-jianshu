@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5201483",
+      "name": "换一批",
+      "font_class": "huanyipi",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
       "icon_id": "11215285",
       "name": "search",
       "font_class": "search",

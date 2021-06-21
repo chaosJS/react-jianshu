@@ -24,13 +24,13 @@ import {
 } from '../../../store/focusSlice';
 import { nextPage } from '../../../store/hotSearch';
 import { fetchPostById } from '../../../services/posts';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 const Header = () => {
 	// const [focused, setFocused] = useState(false);
 	const [myLoading, setMyLoading] = useState(false);
 	const dispatch = useDispatch();
-
+	const spinRef = useRef(null);
+	const [spinDeg, setSpinDeg] = useState(360);
 	const handleFocus = () => {
 		// setFocused(true);
 
@@ -77,7 +77,7 @@ const Header = () => {
 					<NavItem>
 						<a href="/download">
 							<i className="iconfont icon-app4" />
-							下载APP{myLoading ? 'true' : 'false'}
+							下载APP
 						</a>
 					</NavItem>
 					<NavItem>
@@ -107,8 +107,13 @@ const Header = () => {
 									<SearchInfoSwitch
 										onClick={() => {
 											dispatch(nextPage());
+											spinRef.current.style.transform = `rotate(${spinDeg}deg)`;
+											setSpinDeg((ss) => {
+												return spinDeg + 360;
+											});
 										}}
 									>
+										<i ref={spinRef} className="iconfont icon-huanyipi" />
 										换一批
 									</SearchInfoSwitch>
 								</SearchInfoTitle>

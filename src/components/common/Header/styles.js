@@ -107,6 +107,12 @@ export const SearchInfoSwitch = styled.span`
 	margin-left: auto;
 	font-size: 12px;
 	cursor: pointer;
+	i {
+		font-size: 12px;
+		margin-right: 4px;
+		display: inline-block;
+		transition: transform 1s;
+	}
 `;
 export const SearchList = styled.ul`
 	display: flex;
