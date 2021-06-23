@@ -26,7 +26,6 @@ export const hotSearchSlice = createSlice({
 					(state.page + 1) * 10
 				);
 			}
-			console.log(state.page, state.showWords);
 		},
 	},
 	extraReducers: {

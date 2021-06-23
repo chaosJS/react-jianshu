@@ -21,9 +21,9 @@ import {
 	inputBlur,
 	mouseEnter,
 	mouseLeave,
-} from '../../../store/focusSlice';
-import { nextPage } from '../../../store/hotSearch';
-import { fetchPostById } from '../../../services/posts';
+} from '../../store/focusSlice';
+import { nextPage } from '../../store/hotSearch';
+import { fetchPostById } from '../../services/posts';
 import { useEffect, useRef, useState } from 'react';
 const Header = () => {
 	// const [focused, setFocused] = useState(false);

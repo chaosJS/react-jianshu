@@ -1,8 +1,7 @@
-import { useSelector } from 'react-redux';
 import { TopicWrapper, TopicItem } from '../style';
 
-const Topic = () => {
-	const topicList = useSelector((state) => state.topicList.list);
+const Topic = (props) => {
+	const { topicList } = props;
 	return (
 		<TopicWrapper>
 			{topicList.map((item) => (
