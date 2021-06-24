@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
 	HeaderWapper,
 	Logo,
@@ -69,16 +70,16 @@ const Header = () => {
 			<Container>
 				<TopNav>
 					<NavItem>
-						<a href="/">
+						<Link to="/">
 							<i className="iconfont icon-zhinanzhen" />
 							首页
-						</a>
+						</Link>
 					</NavItem>
 					<NavItem>
-						<a href="/download">
+						<Link to="/download">
 							<i className="iconfont icon-app4" />
 							下载APP
-						</a>
+						</Link>
 					</NavItem>
 					<NavItem>
 						<CSSTransition
@@ -128,12 +129,12 @@ const Header = () => {
 						) : null}
 					</NavItem>
 					<NavItem right>
-						<a href="/login">
+						<Link to="/login">
 							<i className="iconfont icon-Aa" />
-						</a>
+						</Link>
 					</NavItem>
 					<NavItem>
-						<a href="/login">登录</a>
+						<Link to="/login">登录</Link>
 					</NavItem>
 				</TopNav>
 			</Container>

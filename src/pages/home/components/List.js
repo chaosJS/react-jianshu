@@ -6,6 +6,7 @@ import {
 	ArticleImg,
 } from '../style';
 import LoadMore from '@components/LoadMore';
+import { Link } from 'react-router-dom';
 const List = () => {
 	const articleList = useSelector((state) => state.topicList.articleList);
 	return (
@@ -15,14 +16,15 @@ const List = () => {
 					<ArticleList key={index}>
 						<ArticleInfo>
 							<h3>
-								<a href={item.to}>{item.title}</a>
+								<Link to={`${item.to}/${item.id}`}>{item.title}</Link>
+								{/* <Link to={`${item.to}?id=${item.id}`}>{item.title}</Link> */}
 							</h3>
 							<p>{item.desc}</p>
 						</ArticleInfo>
 						<ArticleImg>
-							<a href={item.to}>
+							<Link to={item.to}>
 								<img src={item.imgUrl} alt={item.title} />
-							</a>
+							</Link>
 						</ArticleImg>
 					</ArticleList>
 				))}

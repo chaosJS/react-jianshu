@@ -4,6 +4,7 @@ import { useMouseToggle } from '../../../hooks';
 import downloadImg from '@static/images/recomIcon/download.png';
 import DownAPP from './DownApp';
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 const Recommend = () => {
 	const recomList = useSelector((state) => state.topicList.recomList);
 
@@ -18,9 +19,9 @@ const Recommend = () => {
 		<>
 			<RecommendWrapper>
 				{recomList.map((item) => (
-					<a href={item.to} key={item.id}>
+					<Link to={item.to} key={item.id}>
 						<img src={item.imgUrl} alt={item.title} />
-					</a>
+					</Link>
 				))}
 			</RecommendWrapper>
 			<DownloadWrapper
@@ -31,10 +32,10 @@ const Recommend = () => {
 				<div className="download-app">
 					<img src={downloadImg} alt="downloadApp" />
 				</div>
-				<a className="content" href="/detail">
+				<Link className="content" to="/detail">
 					<p className="title">下载简书手机App &gt; </p>
 					<p className="desc">随时随地发现和创作内容</p>
-				</a>
+				</Link>
 				{isHover ? <DownAPP></DownAPP> : null}
 			</DownloadWrapper>
 		</>

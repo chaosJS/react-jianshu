@@ -94,7 +94,7 @@ export const ArticleImg = styled.div`
 `;
 // recommend list
 export const RecommendWrapper = styled.div`
-	padding-top: 30px;
+	margin-top: 30px;
 	a {
 		color: #333;
 		cursor: pointer;
