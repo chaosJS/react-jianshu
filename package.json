@@ -1,7 +1,7 @@
 {
 	"name": "react-jianshu",
 	"version": "0.1.0",
-	"homepage": "https://chaosjs.github.io/react-jianshu",
+	"homepage": "./",
 	"dependencies": {
 		"@craco/craco": "^6.1.2",
 		"@loadable/component": "^5.15.0",
