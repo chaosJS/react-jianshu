@@ -45,7 +45,12 @@ export const RightBtn = styled.button`
 	border: 1px solid rgba(236, 97, 73, 0.7);
 	border-radius: 20px;
 	font-size: 15px;
-	color: ${(props) => (props.write ? '#fff' : '#ea6f5a')};
+	a {
+		color: ${(props) => (props.write ? '#fff' : '#ea6f5a')};
+		:hover {
+			color: #ec6149;
+		}
+	}
 	background-color: ${(props) => (props.write ? '#ea6f5a' : 'transparent')};
 	font-weight: 400;
 	text-align: center;

@@ -24,6 +24,8 @@ import {
 	mouseLeave,
 } from '../../store/focusSlice';
 import { nextPage } from '../../store/hotSearch';
+import { logout } from '../../store/loginSlice';
+
 import { fetchPostById } from '../../services/posts';
 import { useEffect, useRef, useState } from 'react';
 const Header = () => {
@@ -56,17 +58,27 @@ const Header = () => {
 		return state.hotSearchState;
 	});
 
+	const { isLogin } = useSelector((state) => {
+		return state.loginDataFromState;
+	});
+
+	const handleLogout = () => {
+		dispatch(logout());
+	};
 	return (
 		<HeaderWapper>
 			<Logo href="/">
 				<img src={logoImg} alt="logo" />
 			</Logo>
 			<RightBtn write>
-				<i className="iconfont icon-line-quillpenyumaobi" />
-				写文章
+				<Link to="/write">
+					<i className="iconfont icon-line-quillpenyumaobi" />
+					写文章
+				</Link>
 			</RightBtn>
-			<RightBtn>注册</RightBtn>
-
+			<RightBtn>
+				<Link to="/login">注册</Link>
+			</RightBtn>
 			<Container>
 				<TopNav>
 					<NavItem>
@@ -134,7 +146,11 @@ const Header = () => {
 						</Link>
 					</NavItem>
 					<NavItem>
-						<Link to="/login">登录</Link>
+						{isLogin ? (
+							<span onClick={handleLogout}>退出</span>
+						) : (
+							<Link to="/login">{'登录'}</Link>
+						)}
 					</NavItem>
 				</TopNav>
 			</Container>
