@@ -13,3 +13,4 @@
 7. add router
 8. 注意 memo 的使用，避免不必要的渲染
 9. 异步路由加载 使用 React 的 Suspense 和 lazy。 实际上更推荐使用 Loadable Components
+10. deploy to github pages
