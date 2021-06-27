@@ -1,19 +1,19 @@
-name: Continuous Integration
+name: Build and Deploy
 on: [push]
-
 jobs:
-  build_job:
-    runs-on: ubuntu-latest #运行环境
-    name: build
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-      # check out the repository
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
+      - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          BRANCH: gh-pages
+          FOLDER: build
