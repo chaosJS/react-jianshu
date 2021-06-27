@@ -2,7 +2,7 @@
 import GlobalStyle from './style';
 // import GlobalIconStyle from '@static/iconfont/iconfont.js';
 // import Header from '@components/Header';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import '@static/iconfont/iconfont.css';
 // Suspense + lazy
 // const Header = lazy(() => import('@components/Header'));
@@ -32,7 +32,7 @@ function App() {
 		<div className="App">
 			<GlobalStyle />
 			{/* <GlobalIconStyle /> */}
-			<BrowserRouter>
+			<HashRouter>
 				{/* <Suspense fallback={<div>Loading...</div>}> */}
 				<Header />
 				<Switch>
@@ -43,7 +43,7 @@ function App() {
 					<Route component={NoMatch} />
 				</Switch>
 				{/* </Suspense> */}
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 }
