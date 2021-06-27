@@ -32,7 +32,7 @@ function App() {
 		<div className="App">
 			<GlobalStyle />
 			{/* <GlobalIconStyle /> */}
-			<BrowserRouter>
+			<BrowserRouter basename={process.env.PUBLIC_URL}>
 				{/* <Suspense fallback={<div>Loading...</div>}> */}
 				<Header />
 				<Switch>

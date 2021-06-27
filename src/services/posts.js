@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 const preUrl = `${
-	process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
+	process.env.NODE_ENV === 'production'
+		? '/react-jianshu'
+		: 'http://localhost:3000'
 }`;
 export const fetchPostById = createAsyncThunk(
 	'hotSearch/xxxxx',
