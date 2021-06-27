@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-jianshu/static/css/main.fb5277db.chunk.css",
-    "main.js": "/react-jianshu/static/js/main.f5684b20.chunk.js",
-    "main.js.map": "/react-jianshu/static/js/main.f5684b20.chunk.js.map",
+    "main.js": "/react-jianshu/static/js/main.e45c6592.chunk.js",
+    "main.js.map": "/react-jianshu/static/js/main.e45c6592.chunk.js.map",
     "runtime-main.js": "/react-jianshu/static/js/runtime-main.36b80c12.js",
     "runtime-main.js.map": "/react-jianshu/static/js/runtime-main.36b80c12.js.map",
     "static/js/2.485357d7.chunk.js": "/react-jianshu/static/js/2.485357d7.chunk.js",
@@ -30,6 +30,6 @@
     "static/js/runtime-main.36b80c12.js",
     "static/js/2.485357d7.chunk.js",
     "static/css/main.fb5277db.chunk.css",
-    "static/js/main.f5684b20.chunk.js"
+    "static/js/main.e45c6592.chunk.js"
   ]
 }
