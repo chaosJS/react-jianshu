@@ -27,20 +27,25 @@ import { nextPage } from '../../store/hotSearch';
 import { logout } from '../../store/loginSlice';
 
 import { fetchPostById } from '../../services/posts';
-import { useEffect, useRef, useState } from 'react';
+import {
+	// useEffect,
+
+	useRef,
+	useState,
+} from 'react';
 const Header = () => {
 	// const [focused, setFocused] = useState(false);
-	const [myLoading, setMyLoading] = useState(false);
+	// const [myLoading, setMyLoading] = useState(false);
 	const dispatch = useDispatch();
 	const spinRef = useRef(null);
 	const [spinDeg, setSpinDeg] = useState(360);
 	const handleFocus = () => {
 		// setFocused(true);
 
-		setMyLoading(true);
+		// setMyLoading(true);
 		!showWords.length &&
 			dispatch(fetchPostById(1)).then(() => {
-				setMyLoading(false);
+				// setMyLoading(false);
 			});
 		dispatch(inputFocused());
 	};
@@ -54,7 +59,12 @@ const Header = () => {
 	const mouseIn = useSelector((state) => {
 		return state.focusState.mouseIn;
 	});
-	const { list, loading, error, showWords } = useSelector((state) => {
+	const {
+		// list,
+		loading,
+		// error,
+		showWords,
+	} = useSelector((state) => {
 		return state.hotSearchState;
 	});
 

@@ -4,19 +4,19 @@ export const useMouseToggle = () => {
 	return {
 		isHover,
 		bind: {
-			onMouseEnter: useCallback(() => {
+			onMouseEnter: () => {
 				setIsHover(true);
-			}),
-			onMouseLeave: useCallback(() => {
+			},
+			onMouseLeave: () => {
 				setIsHover(false);
-			}),
+			},
 		},
-		mouseEnter: useCallback(() => {
+		mouseEnter: () => {
 			setIsHover(true);
-		}),
-		mouseLeave: useCallback(() => {
+		},
+		mouseLeave: () => {
 			setIsHover(false);
-		}, []),
+		},
 	};
 };
 
@@ -26,15 +26,18 @@ export const useThrottle = (fn, delay, dep = []) => {
 		function () {
 			current.fn = fn;
 		},
-		[fn]
+		[current, fn]
 	);
 
-	return useCallback(function f(...args) {
-		if (!current.timer) {
-			current.timer = setTimeout(() => {
-				delete current.timer;
-			}, delay);
-			current.fn.call(this, ...args);
-		}
-	}, dep);
+	return useCallback(
+		function f(...args) {
+			if (!current.timer) {
+				current.timer = setTimeout(() => {
+					delete current.timer;
+				}, delay);
+				current.fn.call(this, ...args);
+			}
+		},
+		[delay, current]
+	);
 };

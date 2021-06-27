@@ -5,7 +5,10 @@ import { fetchDetailById } from '../../services/detail';
 import { useDispatch, useSelector } from 'react-redux';
 import { ArticleWrapper, LeftWrapper } from './style';
 import Recommend from '../home/components/Recommend';
-import { useParams, useRouteMatch, useLocation } from 'react-router-dom';
+import {
+	useParams,
+	// useRouteMatch, useLocation
+} from 'react-router-dom';
 const Detail = (props) => {
 	// const {
 	// 	match: {
@@ -26,12 +29,10 @@ const Detail = (props) => {
 	// const asd = useRouteMatch();
 
 	const dispatch = useDispatch();
-	const { detailData, loading } = useSelector(
-		(state) => state.detailDataFromState
-	);
+	const { detailData } = useSelector((state) => state.detailDataFromState);
 	useEffect(() => {
 		dispatch(fetchDetailById(id));
-	}, [id]);
+	}, [id, dispatchsetMyLoading]);
 	return (
 		<div style={{ backgroundColor: '#f9f9f9' }}>
 			<Container>

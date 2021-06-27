@@ -19,7 +19,7 @@ const BackTop = () => {
 		return () => {
 			window.removeEventListener('scroll', scrollCb);
 		};
-	}, []);
+	}, [scrollCb]);
 	return (
 		<>
 			{showBackTop ? (
