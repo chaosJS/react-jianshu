@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-jianshu"]=this["webpackJsonpreact-jianshu"]||[]).push([[9],{88:function(t,n,i){"use strict";i.r(n);var c=i(30),e=i(3),a=i(6);n.default=function(){return Object(c.c)((function(t){return t.loginDataFromState})).isLogin?Object(a.jsx)("div",{children:"\u5199/\u7f16\u8f91\u6587\u7ae0"}):Object(a.jsx)(e.a,{to:"/login"})}}}]);
+//# sourceMappingURL=9.a23bf261.chunk.js.map

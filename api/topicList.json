@@ -1,0 +1,15 @@
+{
+	"success": "true",
+	"data": [
+		{
+			"id": 0,
+			"title": "社会热点",
+			"imgUrl": "https://upload.jianshu.io/users/upload_avatars/2631077/dc99c361412c?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+		},
+		{
+			"id": 1,
+			"title": "手绘",
+			"imgUrl": "https://upload.jianshu.io/users/upload_avatars/3136195/484e32c3504a.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+		}
+	]
+}

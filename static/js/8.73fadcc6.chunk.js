@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-jianshu"]=this["webpackJsonpreact-jianshu"]||[]).push([[8],{87:function(t,n,s){"use strict";s.r(n);var c=s(6);n.default=function(){return Object(c.jsx)("div",{children:"404"})}}}]);
+//# sourceMappingURL=8.73fadcc6.chunk.js.map

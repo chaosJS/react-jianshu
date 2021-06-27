@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/noMatch/index.js"],"names":["NoMatch"],"mappings":"uIAIeA,UAJC,WACf,OAAO","file":"static/js/8.73fadcc6.chunk.js","sourcesContent":["const NoMatch = () => {\n\treturn <div>404</div>;\n};\n\nexport default NoMatch;\n"],"sourceRoot":""}
