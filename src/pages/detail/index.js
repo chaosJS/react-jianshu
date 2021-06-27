@@ -32,7 +32,7 @@ const Detail = (props) => {
 	const { detailData } = useSelector((state) => state.detailDataFromState);
 	useEffect(() => {
 		dispatch(fetchDetailById(id));
-	}, [id, dispatchsetMyLoading]);
+	}, [id, dispatch]);
 	return (
 		<div style={{ backgroundColor: '#f9f9f9' }}>
 			<Container>
