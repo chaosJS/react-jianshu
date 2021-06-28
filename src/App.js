@@ -26,6 +26,7 @@ const Detail = loadable(() => import('@/pages/detail'), RouterChangeFallback);
 const Login = loadable(() => import('@/pages/login'), RouterChangeFallback);
 const NoMatch = loadable(() => import('@/pages/noMatch'), RouterChangeFallback);
 const Write = loadable(() => import('@/pages/write'), RouterChangeFallback);
+const Blog = loadable(() => import('@/pages/blog'), RouterChangeFallback);
 
 function App() {
 	return (
@@ -40,6 +41,7 @@ function App() {
 					<Route path={'/'} exact component={Home}></Route>
 					<Route path={'/detail/:id'} exact component={Detail}></Route>
 					<Route path={'/write'} exact component={Write}></Route>
+					<Route path={'/blog'} exact component={Blog}></Route>
 					<Route component={NoMatch} />
 				</Switch>
 				{/* </Suspense> */}

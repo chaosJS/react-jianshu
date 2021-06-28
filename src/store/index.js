@@ -5,6 +5,7 @@ import topicList from './topicSlice';
 import authorList from './authorSlice';
 import detailDataFromState from './detailSlice';
 import loginDataFromState from './loginSlice';
+import blogDataFromState from './blogSlice';
 
 export default configureStore({
 	reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
 		authorList,
 		detailDataFromState,
 		loginDataFromState,
+		blogDataFromState,
 	},
 });
