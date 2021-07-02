@@ -13,7 +13,7 @@ import {
 	SearchItem,
 } from './styles';
 import logoImg from '@static/images/logo.png';
-import { Container } from '@/commonStyle';
+import BaseContainer from '@/components/BaseContainer';
 import { CSSTransition } from 'react-transition-group';
 // use redux state
 import { useSelector, useDispatch } from 'react-redux';
@@ -89,7 +89,7 @@ const Header = () => {
 			<RightBtn>
 				<Link to="/login">注册</Link>
 			</RightBtn>
-			<Container>
+			<BaseContainer>
 				<TopNav>
 					<NavItem>
 						<Link to="/">
@@ -98,7 +98,7 @@ const Header = () => {
 						</Link>
 					</NavItem>
 					<NavItem>
-						<Link to="/download">
+						<Link to="/blog">
 							<i className="iconfont icon-app4" />
 							下载APP
 						</Link>
@@ -163,7 +163,7 @@ const Header = () => {
 						)}
 					</NavItem>
 				</TopNav>
-			</Container>
+			</BaseContainer>
 		</HeaderWapper>
 	);
 };

@@ -1,4 +1,4 @@
-import { Container } from '@/commonStyle';
+import BaseContainer from '@/components/BaseContainer';
 import { useEffect } from 'react';
 import { HomeMain, LeftContent, RightContent } from '../home/style';
 import { fetchDetailById } from '../../services/detail';
@@ -35,7 +35,7 @@ const Detail = (props) => {
 	}, [id, dispatch]);
 	return (
 		<div style={{ backgroundColor: '#f9f9f9' }}>
-			<Container>
+			<BaseContainer>
 				<HomeMain>
 					<LeftContent>
 						<ArticleWrapper>
@@ -55,7 +55,7 @@ const Detail = (props) => {
 						</LeftWrapper>
 					</RightContent>
 				</HomeMain>
-			</Container>
+			</BaseContainer>
 		</div>
 	);
 };

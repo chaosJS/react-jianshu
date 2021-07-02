@@ -5,10 +5,14 @@ export const loginSlice = createSlice({
 	initialState: {
 		isLogin: false,
 		loading: false,
+		sss: '',
 	},
 	reducers: {
 		logout: (state) => {
 			state.isLogin = false;
+		},
+		xxxx: (state, action) => {
+			state.sss = action.payload.aa;
 		},
 	},
 	extraReducers: {
@@ -27,5 +31,5 @@ export const loginSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { logout } = loginSlice.actions;
+export const { logout, xxxx } = loginSlice.actions;
 export default loginSlice.reducer;

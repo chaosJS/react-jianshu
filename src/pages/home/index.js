@@ -1,4 +1,4 @@
-import { Container } from '@/commonStyle';
+import BaseContainer from '@/components/BaseContainer';
 import { HomeMain, LeftContent, RightContent } from './style';
 import List from './components/List';
 import Recommend from './components/Recommend';
@@ -18,7 +18,7 @@ const Home = () => {
 
 	const authorListData = useSelector((state) => state.authorList);
 	return (
-		<Container>
+		<BaseContainer>
 			<HomeMain>
 				<LeftContent>
 					<img
@@ -35,7 +35,7 @@ const Home = () => {
 				</RightContent>
 			</HomeMain>
 			<BackTop></BackTop>
-		</Container>
+		</BaseContainer>
 	);
 };
 

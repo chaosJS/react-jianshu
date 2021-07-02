@@ -1,41 +1,40 @@
-import { useEffect, useState } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { BlogWrapper } from './style';
+import BaseContainer from '@/components/BaseContainer';
+import { BlogListWrapper } from './style';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { newBlog } from '../../services/blog';
+import { Link } from 'react-router-dom';
+import { getBlogList } from '../../services/blog';
+import dayjs from 'dayjs';
 const Blog = () => {
-	const [content, setContent] = useState('');
-	const [title, setTitle] = useState('');
-
 	const dispatch = useDispatch();
-	const { createBlogSuccess } = useSelector((state) => {
-		return state.blogDataFromState;
-	});
-	useEffect(() => {}, [dispatch]);
-
-	const saveContent = () => {
-		dispatch(newBlog({ title, content }));
-	};
-	const handleTitle = (e) => {
-		setTitle(e.target.value);
-	};
+	const { loading, blogList } = useSelector((state) => state.blogDataFromState);
+	useEffect(() => {
+		dispatch(getBlogList());
+	}, []);
 	return (
-		<BlogWrapper>
-			<div>
-				<div className="title-save">
-					<span>New Blog</span>
-					<button onClick={saveContent}>save</button>
-				</div>
-				<input placeholder="title" value={title} onChange={handleTitle} />
-				<ReactQuill
-					style={{ width: '800px', height: '300px' }}
-					theme="snow"
-					value={content}
-					onChange={setContent}
-				/>
-			</div>
-		</BlogWrapper>
+		<BaseContainer>
+			<BlogListWrapper>
+				{loading ? (
+					<li>loading</li>
+				) : (
+					blogList.map((item) => (
+						<li key={item.id}>
+							<h3>
+								<Link to={`/blog/detail/${item.id}`}>{item.title}</Link>
+							</h3>
+							<div
+								className="content"
+								dangerouslySetInnerHTML={{ __html: item.content }}
+							></div>
+							<p className="author">
+								{item.author}
+								<span>{dayjs(item.createtime).format('MM/DD HH: MM: ss')}</span>
+							</p>
+						</li>
+					))
+				)}
+			</BlogListWrapper>
+		</BaseContainer>
 	);
 };
 export default Blog;

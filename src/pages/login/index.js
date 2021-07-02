@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginWrapper, FormWrapper } from './style';
-import { checkLogin } from '../../services/login';
+import { checkLogin, checkBlogLogin } from '../../services/login';
 import { Redirect } from 'react-router-dom';
 const Login = () => {
 	// no need for store state
@@ -19,6 +19,10 @@ const Login = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(checkLogin(loginData));
+	};
+	const handleBlogSubmit = (e) => {
+		e.preventDefault();
+		dispatch(checkBlogLogin(loginData)).then((res) => {});
 	};
 	if (isLogin) {
 		return <Redirect to="/"></Redirect>;
@@ -40,6 +44,9 @@ const Login = () => {
 					/>
 					<button type="submit" onClick={handleSubmit}>
 						登陆
+					</button>
+					<button type="submit" onClick={handleBlogSubmit}>
+						blog登陆
 					</button>
 				</FormWrapper>
 			</LoginWrapper>

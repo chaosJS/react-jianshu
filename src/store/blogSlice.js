@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { newBlog } from '../services/blog';
+import { getBlogList, newBlog } from '../services/blog';
 
 export const blogSlice = createSlice({
 	name: 'blogState',
 	initialState: {
 		loading: false,
 		createBlogSuccess: false,
+		blogList: [],
 	},
 	reducers: {},
 	extraReducers: {
@@ -15,6 +16,14 @@ export const blogSlice = createSlice({
 			state.loading = false;
 		},
 		[newBlog.pending]: (state, action) => {
+			state.loading = true;
+		},
+
+		[getBlogList.fulfilled]: (state, action) => {
+			state.blogList = action.payload;
+			state.loading = false;
+		},
+		[getBlogList.pending]: (state) => {
 			state.loading = true;
 		},
 	},
