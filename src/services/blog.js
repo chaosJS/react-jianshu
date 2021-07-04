@@ -3,8 +3,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 export const getBlogList = createAsyncThunk(
 	'blogData/getBlogList',
-	async () => {
-		const response = await axios.get(`/api/blog/list`);
+	async (authorName) => {
+		const response = await axios.get(`/api/blog/list?author=${authorName}`);
 		return response.data.data;
 	}
 );

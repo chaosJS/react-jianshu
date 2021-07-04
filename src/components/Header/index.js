@@ -100,7 +100,7 @@ const Header = () => {
 					<NavItem>
 						<Link to="/blog">
 							<i className="iconfont icon-app4" />
-							下载APP
+							BLOG
 						</Link>
 					</NavItem>
 					<NavItem>

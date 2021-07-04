@@ -2,7 +2,8 @@
 import GlobalStyle from './style';
 // import GlobalIconStyle from '@static/iconfont/iconfont.js';
 // import Header from '@components/Header';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { checkBlogLogin } from './utils';
 import '@static/iconfont/iconfont.css';
 // Suspense + lazy
 // const Header = lazy(() => import('@components/Header'));
@@ -50,7 +51,13 @@ function App() {
 				<Switch>
 					<Route path={'/login'} exact component={Login}></Route>
 					<Route path={'/'} exact component={Home}></Route>
-					<Route path={'/detail/:id'} exact component={Detail}></Route>
+					<Route
+						path={'/detail/:id'}
+						exact
+						render={() =>
+							checkBlogLogin() ? <Detail /> : <Redirect to="/login" />
+						}
+					></Route>
 					<Route path={'/write'} exact component={Write}></Route>
 					<Route path={'/blog'} exact component={Blog}></Route>
 					<Route path={'/blog/detail/:id'} exact component={BlogDetail}></Route>

@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import { getBlogList, newBlog } from '../services/blog';
-
 export const blogSlice = createSlice({
 	name: 'blogState',
 	initialState: {

@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 export const nFormatter = (num, digits) => {
 	const si = [
 		{ value: 1, symbol: '' },
@@ -26,4 +28,8 @@ export const nFormatter = (num, digits) => {
 	}
 
 	return (num / si[i].value).toFixed(digits).replace(rx, '$1') + si[i].symbol;
+};
+
+export const checkBlogLogin = () => {
+	return !!Cookies.get('userid');
 };
