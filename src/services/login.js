@@ -18,7 +18,7 @@ export const checkLogin = createAsyncThunk(
 export const checkBlogLogin = createAsyncThunk(
 	'login/checkBlogLogin',
 	async (loginData, { dispatch }) => {
-		const response = await axios.post(`/api/user/login`, loginData, {
+		const response = await axios.post(`/blogApi/user/login`, loginData, {
 			withCredentials: true,
 		});
 		// dispatch in async func

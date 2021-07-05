@@ -3,27 +3,42 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { BlogWrapper } from './style';
 import { useDispatch, useSelector } from 'react-redux';
-import { newBlog, updateBlog, delBlog } from '../../../services/blog';
+import {
+	getBlogDetail,
+	newBlog,
+	updateBlog,
+	delBlog,
+} from '../../../services/blog';
+import { setBlogTitle, setBlogContent } from '../../../store/blogSlice';
 import { useLocation, withRouter } from 'react-router';
 const BlogEdit = () => {
 	const [content, setContent] = useState('');
-	const [title, setTitle] = useState('');
 	const { search } = useLocation();
+	const isUpdate = new URLSearchParams(search).get('update');
 	const blogId = new URLSearchParams(search).get('id');
 	const dispatch = useDispatch();
-	const { createBlogSuccess } = useSelector((state) => {
+	const { createBlogSuccess, blogInfo } = useSelector((state) => {
 		return state.blogDataFromState;
 	});
-	// useEffect(() => {}, [dispatch]);
+	useEffect(() => {
+		if (isUpdate) {
+			dispatch(getBlogDetail(blogId));
+		}
+	}, [blogId, dispatch]);
 
 	const saveContent = () => {
-		dispatch(newBlog({ title, content }));
+		dispatch(newBlog({ title: blogInfo.title, content: blogInfo.content }));
 	};
 	const updateContent = () => {
-		dispatch(updateBlog({ blogId, title, content }));
+		dispatch(
+			updateBlog({ blogId, title: blogInfo.title, content: blogInfo.content })
+		);
 	};
 	const handleTitle = (e) => {
-		setTitle(e.target.value);
+		dispatch(setBlogTitle({ title: e.target.value }));
+	};
+	const handleContent = (content) => {
+		dispatch(setBlogContent({ content }));
 	};
 	const handleDelBlog = () => {
 		dispatch(delBlog({ blogId }));
@@ -32,17 +47,21 @@ const BlogEdit = () => {
 		<BlogWrapper>
 			<div>
 				<div className="title-save">
-					<span>New Blog</span>
+					<span>{isUpdate ? 'Edit' : 'New'} Blog</span>
 					<button onClick={saveContent}>save</button>
 					<button onClick={updateContent}>update</button>
 					<button onClick={handleDelBlog}>delete</button>
 				</div>
-				<input placeholder="title" value={title} onChange={handleTitle} />
+				<input
+					placeholder="title"
+					value={blogInfo.title}
+					onChange={handleTitle}
+				/>
 				<ReactQuill
 					style={{ width: '800px', height: '300px' }}
 					theme="snow"
-					value={content}
-					onChange={setContent}
+					value={blogInfo.content}
+					onChange={handleContent}
 				/>
 			</div>
 		</BlogWrapper>

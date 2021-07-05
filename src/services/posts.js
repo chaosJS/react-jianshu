@@ -8,7 +8,7 @@ const preUrl = `${
 export const fetchPostById = createAsyncThunk(
 	'hotSearch/xxxxx',
 	async (postId, thunkAPI) => {
-		const response = await axios.get(`${preUrl}/api/headerList.json`);
+		const response = await axios.get(`/api/headerList.json`);
 		return response.data.data;
 	}
 );
